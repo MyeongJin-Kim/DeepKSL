@@ -52,6 +52,7 @@ obj.names
     ./darknet detector train data/obj.data yolo-obj.cfg yolov3.weights
     ./darknet detector train {.data} {.cfg} {.weights default}
 
+
 4. test
 3000번 돌아간 weight가 저장되었다면(yolo-obj_3000.weights)
     
