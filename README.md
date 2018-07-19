@@ -48,13 +48,15 @@ obj.names
 
 3. train
 학습된 weight는 backup/에 100단위로 저장
-
-    ./darknet detector train data/obj.data yolo-obj.cfg yolov3.weights
-    ./darknet detector train {.data} {.cfg} {.weights default}
+    
+    $ ./darknet detector train data/obj.data yolo-obj.cfg yolov3.weights
+    $ ./darknet detector train {.data} {.cfg} {.weights default}
 
   
 4. test
 3000번 돌아간 weight가 저장되었다면(yolo-obj_3000.weights)
-    
-    ./darknet detector demo test data/obj.data yolo-obj.cfg backup/yolo-obj_3000.weights test.mp4
+
+    $ ./darknet detector demo test data/obj.data yolo-obj.cfg backup/yolo-obj_3000.weights test.mp4
+    $ ./darknet detector demo test data/obj.data yolo-obj.cfg backup/yolo-obj_3000.weights data/img/image.jpg        
+    $ ./darknet detector demo test {.data} {.cfg} {.weights} {데모하고 싶은 이미지 혹은 영상}        
 
