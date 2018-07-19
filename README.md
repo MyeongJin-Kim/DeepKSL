@@ -27,15 +27,18 @@ test image directory list(test.txt) : '/darknet/data/'
 
 yolo-obj.cfg 
 - 각자의 class 수에 맞게 마지막 filters 수정 필요 
-- filters = (classes수 + 5) * 5
+    
+        filters = (classes수 + 5) * 5
+
 - ex) class = 1 인 경우, 마지막 filters = 30
 
 obj.data
-- classes = 1 (수정)
-- train  = /data/train.txt
-- valid  = /data/test.txt
-- names = /data/obj.names
-- backup = backup/
+
+    classes = 1 (수정)
+    train  = /data/train.txt
+    valid  = /data/test.txt
+    names = /data/obj.names
+    backup = backup/
 
 obj.names
 - 자신의 class label을 정의해준다
