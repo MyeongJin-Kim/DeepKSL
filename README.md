@@ -40,10 +40,14 @@ obj.data
 obj.names
 - 자신의 class label을 정의해준다
 - ex) 손을 찾는 모델인 경우
+        
         hand
+        
 - ex) 개와 고양이를 찾는 모델인 경우 
+        
         dog
         cat
+
 
 3. train
 학습된 weight는 backup/에 100단위로 저장
