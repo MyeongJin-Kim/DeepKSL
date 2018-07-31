@@ -20,6 +20,7 @@ GPUtil.showUtilization()
 
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
+
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3
 set_session(tf.Session(config=config))
@@ -37,10 +38,11 @@ from keras.models import Model
 from keras.layers import Dense, Dropout, Flatten, Activation, BatchNormalization
 from keras import optimizers
 from keras import backend as K
+
 GPUtil.showUtilization()
 K.clear_session()
 GPUtil.showUtilization()
-################# hand shape classifier
+
 new = Sequential()
 new.add(Conv2D(10, (3, 3), input_shape = (256, 256, 3),kernel_initializer="he_normal", activation = 'relu'))
 new.add(Conv2D(10, (3, 3), kernel_initializer="he_normal", activation = 'relu'))
@@ -71,7 +73,7 @@ new.add(Dropout(0.2))
 
 new.add(Flatten())
 new.add(Dense(units = 100,activation = 'relu'))
-new.add(Dense(units = 11, activation = 'softmax'))
+new.add(Dense(units = 24, activation = 'softmax'))
 new.compile(optimizer = 'Adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 GPUtil.showUtilization()
@@ -80,17 +82,7 @@ GPUtil.showUtilization()
 new.load_weights('tobigs.9781')
 
 ##################
-dic = {0 : 'r'}
-dic[1] = 'q'
-dic[2] = 't'
-dic[3] = 'x'
-dic[4] = 'g'
-dic[5] = 'k'
-dic[6] = 'h'
-dic[7] = 'n'
-dic[8] = 'm'
-dic[9] = 'l'
-dic[10] = 'p'
+#dic = {0 : 'r'}
 ##################
 
 def sample(probs):
@@ -245,7 +237,10 @@ click_count = 0
 num = 0
 count = 0
 #############################
-index = [0,0,0,0,0,0,0,0,0,0,0]
+index = [0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0]
+
 cropped=None
 label='r'
 ###Set up GUI
@@ -367,16 +362,19 @@ def show_frame():
             text = text + dic[i]
             if len(text) == 1 or text[putidx] != text[putidx-1]:
                 pyautogui.press(text[putidx])
-                putidx = putidx + 1
-                index = [0,0,0,0,0,0,0,0,0,0,0]
+                putidx = putidx + 1             
+                index = [0,0,0,0,0,0,0,0,0,0,
+                     0,0,0,0,0,0,0,0,0,0,
+                     0,0,0,0]
             else:
-                index = [0,0,0,0,0,0,0,0,0,0,0]
+                index = [0,0,0,0,0,0,0,0,0,0,
+                        0,0,0,0,0,0,0,0,0,0,
+                        0,0,0,0]
                 text = text[:len(text)-1]
 
     count +=1
     window.after(1, show_frame)
 ######################################################
-### idx = 10 : shape로 바꿨을 때 아무것도 안뜰때!
  
 #####
 ### display to grid
