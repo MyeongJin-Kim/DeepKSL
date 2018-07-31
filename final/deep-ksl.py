@@ -20,6 +20,7 @@ GPUtil.showUtilization()
 
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
+
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3
 set_session(tf.Session(config=config))
@@ -37,6 +38,7 @@ from keras.models import Model
 from keras.layers import Dense, Dropout, Flatten, Activation, BatchNormalization
 from keras import optimizers
 from keras import backend as K
+
 GPUtil.showUtilization()
 K.clear_session()
 GPUtil.showUtilization()
@@ -118,22 +120,14 @@ classifier.add(Dropout(0.5))
 # fc layer
 classifier.add(Flatten())
 classifier.add(Dense(units = 36,activation = 'relu'))
-classifier.add(Dense(units = 10, activation = 'softmax'))
+classifier.add(Dense(units = 24, activation = 'softmax'))
 classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 classifier.load_weights('tobigs712m6')
 
 GPUtil.showUtilization()
-dic = {0 : 'r'}
-dic[1] = 'q'
-dic[2] = 't'
-dic[3] = 'x'
-dic[4] = 'g'
-dic[5] = 'k'
-dic[6] = 'h'
-dic[7] = 'n'
-dic[8] = 'm'
-dic[9] = 'l'
+# dic = {0 : 'r'}
+
 
 
 
@@ -288,7 +282,9 @@ img_counter = 0
 click_count = 0
 num = 0
 count = 0
-index = [0,0,0,0,0,0,0,0,0,0]
+index = [0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0]
 cropped=None
 label='r'
 ###Set up GUI
@@ -388,9 +384,13 @@ def show_frame():
             if len(text) == 1 or text[putidx] != text[putidx-1]:
                 pyautogui.press(text[putidx])
                 putidx = putidx + 1
-                index = [0,0,0,0,0,0,0,0,0,0]
-            else:
-                index = [0,0,0,0,0,0,0,0,0,0]
+                index = [0,0,0,0,0,0,0,0,0,0,
+                        0,0,0,0,0,0,0,0,0,0,
+                        0,0,0,0]
+            else:                
+                index = [0,0,0,0,0,0,0,0,0,0,
+                     0,0,0,0,0,0,0,0,0,0,
+                     0,0,0,0]
                 text = text[:len(text)-1]
     count +=1
     window.after(1, show_frame)
