@@ -1,5 +1,7 @@
 # DeepKSL
 
+[![Video](http://img.youtube.com/vi/m-VdvINV_P4/0.jpg)](https://www.youtube.com/watch?v=m-VdvINV_P4)
+
 Ubuntu / MacOS
 
 1. Darknet build
