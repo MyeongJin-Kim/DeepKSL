@@ -17,9 +17,9 @@ GPU, CUDNN, OPENCV 사용여부에 따라 설정 바꾸기 (사용하면 1,  사
 ```
 $ nano Makefile
 ```
-    # GPU, CUDNN, OPENCV 사용여부
     GPU=0 
     CUDNN=0
+    OPENCV=0
 
     
   
