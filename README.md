@@ -1,8 +1,8 @@
 # DeepKSL
 
-[![Video](http://img.youtube.com/vi/m-VdvINV_P4/0.jpg)](https://www.youtube.com/watch?v=m-VdvINV_P4)
+[![Video](http://img.youtube.com/vi/mfdXBcDYc1A/0.jpg)](https://www.youtube.com/watch?v=mfdXBcDYc1A)
 
-Ubuntu / MacOS
+Ubuntu, MacOS
 
 1. Darknet build
 
@@ -12,37 +12,40 @@ $ cd DeepKSL
 
 $ nano Makefile
 
-    GPU=0
+    # GPU, CUDNN, OPENCV 사용여부
+    GPU=0 
     CUDNN=0
     OPENCV=0
     
 $ make
 
-$ wget https://pjreddie.com/media/files/yolov3.weights
+$ wget https://pjreddie.com/media/files/yolov3.weights # yolo 모델 weight 다운로드
 
 2. Customize Darknet
-Image dataset directory : '/darknet/data/img/'
-Image bounding box coordinates : '/darknet/data/img/'
+
+Image dataset directory : '/darknet/data/img/'  
+Image bounding box coordinates : '/darknet/data/img/'  
 
 train image directory list(train.txt) : '/darknet/data/'  
-test image directory list(test.txt) : '/darknet/data/' 
+test image directory list(test.txt) : '/darknet/data/'  
 
-yolo-obj.cfg 
+[ yolo-obj.cfg ]
+
 - 각자의 class 수에 맞게 마지막 filters 수정 필요 
     
         filters = (classes수 + 5) * 5
 
 - ex) class = 1 인 경우, 마지막 filters = 30
-
-obj.data
+  
+[ obj.data ]
 
     classes = 1 (수정)
     train  = /data/train.txt
     valid  = /data/test.txt
     names = /data/obj.names
     backup = backup/
-
-obj.names
+  
+[ obj.names ]
 - 자신의 class label을 정의해준다
 - ex) 손을 찾는 모델인 경우
         
@@ -52,14 +55,14 @@ obj.names
         
         dog
         cat
-
-
+  
+  
 3. train
 학습된 weight는 backup/에 100단위로 저장
-
+  
         ./darknet detector train data/obj.data yolo-obj.cfg yolov3.weights
         ./darknet detector train {.data} {.cfg} {.weights default}
-
+  
   
 4. test
 3000번 돌아간 weight가 저장되었다면(yolo-obj_3000.weights)
