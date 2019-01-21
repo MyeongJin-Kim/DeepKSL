@@ -13,7 +13,7 @@ $ git clone https://github.com/dasolhwang/DeepKSL
 $ cd DeepKSL        
 ```
 
-GPU, CUDNN, OPENCV 사용여부에 따라 설정 바꾸기 (사용하면 1,  사용하지 않으면 0)
+GPU, CUDNN, OPENCV 사용여부에 따라 설정 바꾸기 (사용하면 1,  사용하지 않으면 0)  
 ```
 $ nano Makefile
 ```
@@ -24,20 +24,25 @@ $ nano Makefile
     
   
 ### Customize Darknet
-- DeepKSL-master
+- DeepKSL
+  - yolo-obj.cfg
   - data
-       
+    - train.txt 
+    - test.txt
+    - img
+    - obj.data
+    - obj.names
 
   
-[ yolo-obj.cfg ]
+#### yolo-obj.cfg  
   
-        filters = (classes수 + 5) * 5
+    filters = (classes수 + 5) * 5
   
 - 각자의 class 수에 맞게 마지막 filters 수정 필요 
 - ex) class = 1 인 경우, 마지막 filters = 30
   
   
-[ obj.data ]
+#### obj.data  
 
     classes = 1
     train  = /data/train.txt
@@ -48,10 +53,10 @@ $ nano Makefile
 - classes = 클래스 수
   
   
-[ obj.names ]
+#### obj.names  
         
-        dog
-        cat
+    dog
+    cat
         
   
 - 자신의 class label을 정의해준다        
